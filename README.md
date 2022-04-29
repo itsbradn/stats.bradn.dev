@@ -1,42 +1,19 @@
-# Nuxt 3 Minimal Starter
+<h1 align="center">Bradn Stats 📉: A Game Statistic and Profile Viewer</h1>
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Easily view users from various games such as Minecraft, Valorant, and more! See stat changes over time with in depth graphs and notifications.
 
-## Setup
+<h2 align="center">Contributing</h1>
 
-Make sure to install the dependencies:
+Want to contribute to the project? Feel free to report bugs and/or contribute to the project! Open <a href="../../issues">Issues</a> or <a href="../../pulls">Pull Requests</a> and we will review them!
 
-```bash
-# yarn
-yarn install
+<h3>Prerequisites</h3>
 
-# npm
-npm install
+- <a href="https://nodejs.org/">Node.js</a>
+- <a href="https://www.npmjs.com/package/yarn">Yarn</a>
+- <a href="https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar">Volar Extension</a>
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+<h3>Installation</h3>
 
-## Development Server
+Clone the project and run `yarn install` to install dependencies.
 
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+Now you can run `yarn dev` to start a development server. You can access the site at <a href="http://localhost:3000">http://localhost:3000</a>. The port may change if you already have a server running on that port or you changed the default port.
