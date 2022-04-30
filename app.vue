@@ -1,5 +1,7 @@
 <template>
-    <NuxtLayout>
-      <NuxtPage/>
-    </NuxtLayout>
+        <NuxtLayout>
+          <Transition name="fade">
+            <NuxtPage/>
+          </Transition>
+        </NuxtLayout>
 </template>
