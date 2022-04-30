@@ -1,6 +1,6 @@
 <template>
-    <header>
-        <div class="header-content">
+    <header class="header">
+        <div class="header__content">
             <NuxtLink to="/">
                 <img src="~assets/svgs/logo-light.svg?data" />
             </NuxtLink>
