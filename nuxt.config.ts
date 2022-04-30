@@ -12,6 +12,7 @@ export default defineNuxtConfig({
         },
         
     },
+    target: 'static',
     css: [
         '@/assets/styles/main.scss'
     ],
