@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="header__content">
-            <NuxtLink to="/">
+            <NuxtLink to="/panel">
                 <img src="~assets/svgs/logo-light.svg?data" />
             </NuxtLink>
             <div class="[ flex-row ] [ gap-24 ]">

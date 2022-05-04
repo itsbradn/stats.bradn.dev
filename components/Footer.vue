@@ -24,7 +24,7 @@
         <div class="footer__details">
             <div class="text" data-size="S">Bradn, 2021-2022</div>
             <div>
-                <NuxtLink class="text-primary-300" to="/privacy">Privacy Policy</NuxtLink>
+                <NuxtLink class="text text-primary-300" data-size="S" to="/privacy">Privacy Policy</NuxtLink>
             </div>
         </div>
     </footer>

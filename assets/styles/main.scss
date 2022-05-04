@@ -9,7 +9,7 @@ $font: 'Mulish', sans-serif;
 
 /* Font Weights */
 $fw-400: 400;
-$fw-500: 600;
+$fw-500: 700;
 $fw-600: 800;
 
 /* Font Sizing */
@@ -112,6 +112,28 @@ body {
     box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    transition: all 150ms ease;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $clr-bg-600;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: $clr-primary-200;
+    border-radius: 9999px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: $clr-primary-300;
+  }
+
 /* Remove default margin */
 body,
 h1,
@@ -156,6 +178,7 @@ body {
 
 a {
     text-decoration: none;
+    color: $clr-primary-400;
 }
 
 a:not([class]) {
@@ -167,7 +190,7 @@ body {
     font-weight: $fw-400;
     line-height: 1.6;
     color: $clr-text-400;
-    background-color: $clr-bg-500;
+    background-color: $clr-bg-400;
 }
 
 h1,
@@ -380,12 +403,30 @@ h3 {
 
 /* Widths */
 
+.max-width-250 {
+    max-width: 250px;
+}
+
+.max-width-350 {
+    max-width: 350px;
+}
+
 .max-width-500 {
     max-width: 500px;
 }
 
 .max-width-550 {
     max-width: 550px;
+}
+
+.width-550 {
+    width: 550px;
+}
+
+.width-fill {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
 }
 
 /* Text */
@@ -515,6 +556,7 @@ h3 {
     &.disabled {
         background-color: $clr-bg-600;
         color: $clr-text-200;
+        cursor: not-allowed;
     }
 
     &:focus,
@@ -553,6 +595,11 @@ h3 {
             color: $clr-text-100;
         }
     }
+
+    &[data-block="true"] {
+        width: 100%;
+        display: block;
+    }
     
 }
 
@@ -573,11 +620,84 @@ h3 {
             margin-right: auto;   
         }
     }
+    &[data-type="dark"] {
+        background-color: $clr-bg-500;
+    }
+}
+
+.form-group[data-type="text"] {
+    >label {
+        display: block;
+        font-size: $fs-200;
+        font-weight: $fw-500;
+        color: $clr-text-200;
+        margin-bottom: $spacing-100;
+    }
+    >input {
+        display: block;
+        border: none;
+        background-color: $clr-bg-500;
+        padding: $spacing-300;
+        font-size: $fs-200;
+        border-radius: $cr-400;
+        color: $clr-text-300;
+        width: 100%;
+        outline-offset: -2px;
+        outline: 2px solid transparent;
+        transition: outline 100ms ease;
+
+        &:hover {
+            outline-color: $clr-accent-400;
+        }
+
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
+            outline-color: $clr-primary-400;
+        }
+
+        &:disabled {
+            color: $clr-text-400;
+            background-color: $clr-bg-600;
+            outline-color: $clr-dividers-400;
+            outline-width: 1px;
+            outline-offset: -1px;
+        }
+
+        &:not(:placeholder-shown):invalid,
+        &.invalid,
+        &:not(:last-child) {
+            outline-color: $clr-error-400;
+        }
+    }
+
+    >.error-label {
+        color: $clr-error-400;
+        margin-bottom: $spacing-300;
+    }
+
+    &:not(:last-child) {
+        >input:last-child {
+            margin-bottom: $spacing-300;
+        }
+    }
+}
+
+
+
+form.valid {
+    >.form-group {
+        >input {
+            background-color: $clr-success-300;
+            color: $clr-success-400;
+            outline-color: $clr-success-400;
+        }
+    }
 }
 
 .section {
     &[data-type="dark"] {
-        background-color: $clr-bg-600;
+        background-color: $clr-bg-500;
     }
     >.section-content {
         width: 100%;
@@ -596,6 +716,12 @@ h3 {
                 width: 100%;
                 height: 100%;
             }
+        }
+
+        &[data-type="center"] {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         &[data-size="tall"] {
@@ -694,19 +820,115 @@ h3 {
     color: $clr-attention-400;
 }
 
+.panel {
+    margin-top: $spacing-200;
+    &__content {
+        margin-top: $spacing-500;
+        display: flex;
+
+        >* {
+            width: 100%;
+            >*:not(:last-child) {
+                margin-bottom: $spacing-500;
+            }
+        }
+        gap: 28px;
+
+        >:first-child {
+            width: 25%;
+        }
+    }
+}
+
 .card {
-    width: 375px;
+    min-width: 250px;
+    max-width: 375px;
     background-color: $clr-bg-400;
     border-radius: $cr-500;
-    padding: $spacing-300;
-    padding-bottom: $spacing-400;
+    padding: $spacing-400;
+    padding-bottom: $spacing-300;
+    box-shadow: $shadow-300;
 
     &__image {
+        width: 200px;
+        margin-bottom: $spacing-400;
+    }
+
+    &__tall-image {
         background-color: $clr-primary-200;
         width: 350px;
         height: 350px;
         border-radius: $cr-400;
         margin-bottom: $spacing-400;
+    }
+
+    &__content {
+        &[data-type="split"] {
+            display: flex;
+            flex-direction: row;
+            gap: $spacing-400;
+        }
+
+        >.icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            >span {
+                height: fit-content;
+                width: fit-content;
+                color: $clr-text-100;
+                font-size: 24px;
+                padding: 12px;
+                border-radius: 8px;
+                background-color: $clr-primary-400;
+            }
+        }
+    }
+}
+
+.badge {
+    padding: 3px 6px;
+    background-color: $clr-accent-400;
+    border-radius: 4px;
+    font-size: $fs-100;
+    font-weight: $fw-500;
+    color: $clr-text-100;
+}
+
+.panel-header {
+    padding: $spacing-200 0;
+}
+
+.chip {
+    font-size: $fs-300;
+    font-weight: $fw-600;
+    color: $clr-text-300;
+    padding: $spacing-200 $spacing-400;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+    transition: 150ms ease;
+
+    &:hover {
+        color: $clr-primary-400;
+        border-color: $clr-primary-400;
+        cursor: pointer;
+    }
+
+    &:active {
+        color: $clr-primary-600;
+        border-color: $clr-primary-600;
+    }
+
+    &.selected,
+    &.router-link-exact-active {
+        border-color: $clr-primary-400;
+        color: $clr-text-500;
+    }
+
+    >.badge {
+        margin-left: 6px;
     }
 }
 
@@ -890,4 +1112,96 @@ h3 {
             transform: translateY(400px) translateX(275px);
         }
     }
+}
+
+.loading {
+    position: absolute;
+    z-index: 9999999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.success {
+        >svg {
+            >path {
+                animation: check .75s 1 linear;
+                transform-origin: center;
+                opacity: 100%;
+                stroke: $clr-success-400;
+            }
+            >circle {
+                stroke: $clr-success-400;
+                stroke-dasharray: 100 0;
+                transition: stroke-dasharray 150ms ease;
+                animation-iteration-count: 1;
+            }
+        }
+    }
+
+    >svg {
+        animation: spinner 1s infinite linear;
+
+
+        >path {
+            opacity: 0%;
+            transform: translateX(32.5px) translateY(35px);
+        }
+        >circle {
+            stroke: $clr-primary-400;
+            stroke-dasharray: 50 50;
+            animation: spinnerCircle 2s infinite linear;
+            
+            transition: all 250ms ease-in-out;
+            transform-origin: center;
+        }
+    }
+}
+
+@keyframes check {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes spinnerCircle {
+    0% {
+        transform: rotate(45deg);
+        stroke-dasharray: 100 0;
+    }
+
+    50% {
+        transform: rotate(405deg);
+        stroke-dasharray: 50 50;
+    }
+
+    100% {
+        transform: rotate(405deg + 360deg);
+        stroke-dasharray: 100 0;
+    }
+}
+
+*[data-bg-color="yellow"] {
+    background-color: $clr-attention-300 !important;
+}
+
+*[data-bg-color="orange"] {
+    background-color: $clr-accent-300 !important;
+}
+
+*[data-bg-color="red"] {
+    background-color: $clr-error-300 !important;
+}
+
+*[data-bg-color="green"] {
+    background-color: $clr-success-300 !important;
 }
