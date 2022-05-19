@@ -15,3 +15,12 @@
         </div>
     </div>
 </template>
+
+<script setup>
+    definePageMeta({
+        middleware: ["softauth"],
+    });
+	useHead({
+		title: 'How\'d you get here?! - bradn stats'
+	});
+</script>
