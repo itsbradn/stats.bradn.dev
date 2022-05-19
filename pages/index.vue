@@ -80,4 +80,20 @@
             to: '/player/VIETAMANDA'
         }
     ]
+
+    
+	useHead({
+		title: `bradn stats - Minecraft Statistic Viewer`,
+        meta: [
+            { name: `title`, content: `bradn stats - Game Statistic Viewer` },
+            { name: `description`, content: `View players Hypixel stats and more easily.` },
+            { name: `theme-color`, content: `#244ad0` },
+            { property: `og:title`, content: `bradn stats - Game Statistic Viewer` },
+            { property: `og:description`, content: `View players Hypixel stats and more easily.` },
+            { property: `og:url`, content: `https://stats.bradn.dev/` },
+            { property: `twitter:title`, content: `bradn stats - Game Statistic Viewer` },
+            { property: `twitter:description`, content: `View players Hypixel stats and more easily.` },
+            { property: `twitter:url`, content: `https://stats.bradn.dev/` },
+        ]
+	});
 </script>

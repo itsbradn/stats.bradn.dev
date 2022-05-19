@@ -53,7 +53,18 @@
         // error handler but im lazy lols
     }
 
+
 	useHead({
-		title: 'bradn stats - Panel'
+		title: `${player.username} - Hypixel | bradn stats`,
+        meta: [
+            { name: `title`, content: `${player.username} - Hypixel | bradn stats` },
+            { name: `description`, content: `View ${player.username}'s Hypixel stats and more easily.` },
+            { property: `og:title`, content: `${player.username} - Hypixel | bradn stats` },
+            { property: `og:description`, content: `View ${player.username}'s Hypixel stats and more easily.` },
+            { property: `og:url`, content: `https://stats.bradn.dev/player/${player.username}/hypixel` },
+            { property: `twitter:title`, content: `${player.username} - Hypixel | bradn stats` },
+            { property: `twitter:description`, content: `View ${player.username}'s Hypixel stats and more easily.` },
+            { property: `twitter:url`, content: `https://stats.bradn.dev/player/${player.username}/hypixel` },
+        ]
 	});
 </script>

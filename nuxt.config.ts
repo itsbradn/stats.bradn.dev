@@ -5,9 +5,6 @@ export default defineNuxtConfig({
     app: {
         head: {
             title: 'bradn stats - Game Statistic Viewer',
-            meta: [
-                { name: 'title', content: 'bradn stats - Game Statistic Viewer' },
-            ],
             link: [
                 { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
                 { rel: 'preconnect', href: 'https://fonts.googleapis.com'},
