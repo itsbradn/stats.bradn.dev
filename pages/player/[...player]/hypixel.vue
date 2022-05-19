@@ -256,4 +256,18 @@ let dateIntl = new Intl.DateTimeFormat("en-GB", {
     {id: 'bridge_3v3v3v3', divisionId: 'bridge', name: 'Bridge 3v3v3v3'},
     {id: 'capture_threes', divisionId: 'bridge', name: 'Bridge CTF 3v3'},
 ]
+
+	useHead({
+		title: `${player.username} - Hypixel | bradn stats`,
+        meta: [
+            { name: `title`, content: `${player.username} - Hypixel | bradn stats` },
+            { name: `description`, content: `View ${player.username}'s Hypixel stats and more easily.` },
+            { property: `og:title`, content: `${player.username} - Hypixel | bradn stats` },
+            { property: `og:description`, content: `View ${player.username}'s Hypixel stats and more easily.` },
+            { property: `og:url`, content: `https://stats.bradn.dev/player/${player.username}/hypixel` },
+            { property: `twitter:title`, content: `${player.username} - Hypixel | bradn stats` },
+            { property: `twitter:description`, content: `View ${player.username}'s Hypixel stats and more easily.` },
+            { property: `twitter:url`, content: `https://stats.bradn.dev/player/${player.username}/hypixel` },
+        ]
+	});
 </script>
