@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     ssr: false,
     runtimeConfig: {
         public: {
-            BASE_URL: process.env.BASE_URL || 'http://localhost:5000/'
+            BASE_URL: process.env.BASE_URL || 'https://api.bradn.dev/'
         }
     }
     
