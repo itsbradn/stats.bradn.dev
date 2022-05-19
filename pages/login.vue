@@ -69,6 +69,10 @@
 </template>
 
 <script setup>
+    definePageMeta({
+        middleware: ["softauth"],
+    });
+  	const config = useRuntimeConfig().public
 	const user = useUser();
 	let loading = ref(false);
 	let invalid = ref(true);
@@ -104,12 +108,13 @@
 
 	async function submitLogin() {
 		try {
-			let req = await $fetch("http://localhost:5000/api/v1/auth/login", {
+			let req = await $fetch("/api/v1/auth/login", {
 				method: "POST",
 				body: {
 					username: username.value,
 					password: password.value,
 				},
+        		baseURL: config.BASE_URL,
 			});
 			document.getElementById("login-form").classList.add("valid");
 			localStorage.setItem("auth", req.token);
@@ -117,10 +122,15 @@
 			user.value = res.data;
 			return navigateTo("/panel");
 		} catch (e) {
+			console.log(e);
 			invalid.value = true;
 			error.value = e.response._data.error;
 			errorField.value = e.response._data.fields;
 			
 		}
 	}
+
+	useHead({
+		title: 'bradn stats - Login'
+	});
 </script>

@@ -4,7 +4,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (!user.value.id || user.value.id === '') {
         if (!localStorage.getItem('auth')) {
-            return navigateTo('/register');
+            return;
         }
 
         interface userRequest {
@@ -18,14 +18,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
             },
             baseURL: config.BASE_URL,
         });
-
-        if (req.success !== true) {
-            return navigateTo('/register');
-        }
-
-        if (to.fullPath !== "/onboarding/email" && req.data.verified === false) {
-            return navigateTo('/onboarding/email');
-        }
 
         user.value = req.data;
     }

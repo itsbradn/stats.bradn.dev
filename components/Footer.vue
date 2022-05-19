@@ -3,10 +3,8 @@
         <div class="footer__content padding-24 padding-remsides">
             <div class="footer__list-container">
                 <div class="footer__list">
-                    <h4 class="text text-primary-500" data-size="S" data-weight="XB">Games</h4>
-                    <NuxtLink class="text text-primary-500" data-size="M" to="/mc">Minecraft</NuxtLink>
-                    <NuxtLink class="text text-primary-500" data-size="M" to="/valorant">Valorant</NuxtLink>
-                    <NuxtLink class="text text-primary-500" data-size="M" to="/genshin">Genshin Impact</NuxtLink>
+                    <h4 class="text text-primary-500" data-size="S" data-weight="XB">Contributers</h4>
+                    <NuxtLink class="text text-primary-500" data-size="M" to="/player/bradn">Braden</NuxtLink>
                 </div>
                 <div class="footer__list">
                     <h4 class="text text-primary-500" data-size="S" data-weight="XB">Credits</h4>

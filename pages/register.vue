@@ -117,6 +117,10 @@
 </template>
 
 <script setup>
+    definePageMeta({
+        middleware: ["softauth"],
+    });
+  	const config = useRuntimeConfig().public
 	const user = useUser();
 	let loading = ref(false);
 	let invalid = ref(true);
@@ -162,7 +166,7 @@
 
 	async function submitRegister() {
 		try {
-			let req = await $fetch("http://localhost:5000/api/v1/auth/register", {
+			let req = await $fetch("/api/v1/auth/register", {
 				method: "POST",
 				body: {
 					username: username.value,
@@ -170,6 +174,7 @@
 					password: password.value,
 					confirmPassword: passwordConfirm.value,
 				},
+        		baseURL: config.BASE_URL,
 			});
 			document.getElementById("register-form").classList.add("valid");
 			localStorage.setItem("auth", req.token);
@@ -183,4 +188,8 @@
 			
 		}
 	}
+
+	useHead({
+		title: 'bradn stats - Register'
+	});
 </script>

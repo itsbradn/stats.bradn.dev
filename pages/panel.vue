@@ -28,4 +28,8 @@
             mode: 'out-in',
         }
     });
+
+	useHead({
+		title: 'bradn stats - Panel'
+	});
 </script>

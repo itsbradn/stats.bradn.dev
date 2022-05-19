@@ -26,6 +26,6 @@
                                 1.57 KDA
                             </div>
                         </div>
-                        <img src="~assets/svgs/hero-image.svg?data" class="hero-image" />
+                        <img src="/img/hypixel-logo.png" class="hero-image" />
                     </div>
 </template>

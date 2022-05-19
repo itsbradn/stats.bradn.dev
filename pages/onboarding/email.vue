@@ -46,6 +46,7 @@
 </template>
 
 <script setup>
+  	const config = useRuntimeConfig().public
     definePageMeta({
         middleware: ["auth"],
     });
@@ -54,11 +55,12 @@
     let error = ref("");
 
     async function refreshCode() {
-        const req = await $fetch('http://localhost:5000/api/v1/account/resend', {
+        const req = await $fetch('/api/v1/account/resend', {
 				method: "POST",
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('auth')}`
-            }
+            },
+        		baseURL: config.BASE_URL,
         });
 
         if (req.success === false) {
@@ -69,14 +71,15 @@
     }
 
     async function submitCode() {
-        const req = await $fetch('http://localhost:5000/api/v1/account/verify', {
+        const req = await $fetch('/api/v1/account/verify', {
 				method: "POST",
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('auth')}`
             },
             body: {
                 code: code.value,
-            }
+            },
+        		baseURL: config.BASE_URL,
         });
 
         if (req.success === false) {
