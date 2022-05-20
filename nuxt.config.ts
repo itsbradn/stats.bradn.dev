@@ -12,10 +12,10 @@ export default defineNuxtConfig({
                 { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,400,0,0'}, // Mulish Font Family imports
             ],
             script: [
-                // { src: '/js/skinview3d.js' }
+                { src: 'https://twemoji.maxcdn.com/v/latest/twemoji.min.js' }
             ]
         },
-          
+             
     },
     css: [
         '@/assets/styles/main.scss'

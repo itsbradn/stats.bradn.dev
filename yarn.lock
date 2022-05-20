@@ -6121,7 +6121,12 @@
     "loader-utils" "^1.2.3"
     "svg-to-vue" "^0.7.0"
 
-"vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.33", "vue@>=3", "vue@3.2.33":
+"vue-twemoji@^1.0.1":
+  "integrity" "sha512-vKdA9vZuV0ADB8O2qCah//nGv9seb+S1hMTwU6IhPmmOsax4EHqwzyXSTf7kr3jCobsQIBBtNg2bpuRYoxalAA=="
+  "resolved" "https://registry.npmjs.org/vue-twemoji/-/vue-twemoji-1.0.1.tgz"
+  "version" "1.0.1"
+
+"vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.33", "vue@>= 1.0.0", "vue@>=3", "vue@3.2.33":
   "integrity" "sha512-si1ExAlDUrLSIg/V7D/GgA4twJwfsfgG+t9w10z38HhL/HA07132pUQ2KuwAo8qbCyMJ9e6OqrmWrOCr+jW7ZQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.33.tgz"
   "version" "3.2.33"

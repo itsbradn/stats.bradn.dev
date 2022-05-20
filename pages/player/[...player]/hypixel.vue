@@ -1,6 +1,6 @@
 <template>
 	<div class="panel">
-		<h2 class="[ text-primary-500 ]">{{player.username}}</h2>
+		<h2 class="[ text-primary-500 ]">{{player.username}} {{ player.owner && twemoji.parse(player.owner.emoji) ? player.owner.emoji : "" }}</h2>
 		<div class="panel__content">
 			<div>
 				<SkinCard :skinid="skinid" />
@@ -50,6 +50,7 @@
 </template>
 
 <script setup>
+    
     import { handlePercent, handleRatio, secToTime } from '~~/composables/number';
 
     const props = defineProps({

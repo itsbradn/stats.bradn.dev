@@ -15,6 +15,7 @@
     "webpack": "^5.72.0"
   },
   "dependencies": {
-    "apexcharts": "^3.35.2"
+    "apexcharts": "^3.35.2",
+    "vue-twemoji": "^1.0.1"
   }
 }
