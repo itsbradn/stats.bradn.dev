@@ -13,5 +13,8 @@
     "sass-loader": "^12.6.0",
     "skinview3d": "^2.2.1",
     "webpack": "^5.72.0"
+  },
+  "dependencies": {
+    "apexcharts": "^3.35.2"
   }
 }

@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     modules: [
         "@nuxtjs/svg",
     ],
+    target: 'static',
     ssr: false,
     runtimeConfig: {
         public: {
