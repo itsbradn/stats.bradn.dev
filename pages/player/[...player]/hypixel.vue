@@ -50,8 +50,8 @@
 </template>
 
 <script setup>
-    
     import { handlePercent, handleRatio, secToTime } from '~~/composables/number';
+    let twemoji = import('public/js/twemoji.js');
 
     const props = defineProps({
         player: {
