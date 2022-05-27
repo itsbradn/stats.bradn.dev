@@ -342,6 +342,10 @@ h3 {
     margin-top: $spacing-200;
 }
 
+.margin-top-16 {
+    margin-top: $spacing-300;
+}
+
 .margin-bottom-4 {
     margin-bottom: $spacing-100;
 }
@@ -955,10 +959,10 @@ form.valid {
         >* {
             width: 100%;
             >*:not(:last-child) {
-                margin-bottom: $spacing-500;
+                margin-bottom: $spacing-400;
             }
         }
-        gap: 28px;
+        gap: $spacing-400;
 
         >:first-child {
             width: 25%;
@@ -1097,6 +1101,20 @@ form.valid {
 .stat-table {
     width: 100%;
     text-align: left;
+    border-collapse: collapse;
+
+    >tbody {
+        >tr {
+            >td {
+                &:first-child {
+                    padding-left: 5px;
+                }
+            }
+            &:nth-child(2n+1) {
+                background-color: rgba($clr-bg-500, 0.3);
+            }
+        }
+    }
 }
 
 .drop-info {
@@ -1333,6 +1351,44 @@ form.valid {
             position: absolute;
             transform: translateY(400px) translateX(275px);
         }
+    }
+}
+
+.bar-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    >.stat-bar {
+        flex-grow: 1;
+    }
+}
+
+.stat-bar {
+    &__text {
+        height: 20px;
+        margin-bottom: -18px;
+        z-index: 3;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: $clr-text-100;
+    }
+    &__bar {
+        background-color: $clr-accent-400;
+        min-width: 5%;
+        height: 20px;
+        margin-bottom: -20px;
+        z-index: 2;
+        position: relative;
+        border-radius: $cr-300;
+    }
+    &__base {
+        width: 100%;
+        background-color: $clr-bg-500;
+        height: 20px;
+        z-index: 1;
+        border-radius: $cr-300;
     }
 }
 

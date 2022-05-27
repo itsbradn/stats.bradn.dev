@@ -50,7 +50,41 @@
                                 <div class="stat">Kills: <span>{{ player.hypixel.stats.TNTGames.modes.wizards.kills.value?.toLocaleString("en-US") }}</span></div>
                                 <div class="stat">Deaths: <span>{{ player.hypixel.stats.TNTGames.modes.wizards.deaths.value?.toLocaleString("en-US") }}</span></div>
                                 <div class="stat">Kill/Death Ratio: <span>{{  handleRatio(player.hypixel.stats.TNTGames.modes.wizards.kills.value, player.hypixel.stats.TNTGames.modes.wizards.deaths.value) }}</span></div>
-                                <h5>Class statistics coming soon.</h5>
+                                <h4 class="margin-bottom-8 text-primary-500 margin-top-16">Classes</h4>
+                                <table class="stat-table">
+                                    <thead>
+                                        <th>Class</th>
+                                        <th>Kills</th>
+                                        <th>Deaths</th>
+                                        <th>Assists</th>
+                                        <th>KD</th>
+                                        <th>Power</th>
+                                        <th>Regen</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="wizard in Object.keys(wizardClasses)" :key="wizard">
+                                            <td>{{ wizard.split("")[0].toUpperCase() + wizard.slice(1) }}</td>
+                                            <td>{{ wizardClasses[wizard].kills.value.toLocaleString("en-US") }}</td>
+                                            <td>{{ wizardClasses[wizard].deaths.value.toLocaleString("en-US") }}</td>
+                                            <td>{{ wizardClasses[wizard].assists.value.toLocaleString("en-US") }}</td>
+                                            <td>{{ handleRatio(wizardClasses[wizard].kills.value, wizardClasses[wizard].deaths.value).toLocaleString("en-US") }}</td>
+                                            <td style="width: 180px;">
+                                                <div class="stat-bar">
+                                                    <div class="stat-bar__text">{{ wizardClasses[wizard].power.value }}/{{ wizardMax }}</div>
+                                                    <div class="stat-bar__bar" :style="`width: ${handlePercent(wizardClasses[wizard].power.value, wizardMax).split('.')[0] }%;`"></div>
+                                                    <div class="stat-bar__base"></div>
+                                                </div>
+                                            </td>
+                                            <td style="width: 180px;">
+                                                <div class="stat-bar">
+                                                    <div class="stat-bar__text">{{ wizardClasses[wizard].regen.value }}/{{ wizardMax }}</div>
+                                                    <div class="stat-bar__bar" :style="`width: ${handlePercent(wizardClasses[wizard].regen.value, wizardMax).split('.')[0] }%;`"></div>
+                                                    <div class="stat-bar__base"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                     </template>
                 </AccordionItem>
 </template>
@@ -63,4 +97,10 @@
         }
     });
     const player = props.player;
+    function showClass([key, value]) {
+        if (!value) return false;
+        return value?.losses?.value > 0 || value?.kills?.value > 0 || value?.deaths?.value > 0
+    }
+    let wizardMax = 6;
+    const wizardClasses = Object.fromEntries(Object.entries(player.hypixel.stats.TNTGames.modes.wizards.classes).filter(showClass));
 </script>

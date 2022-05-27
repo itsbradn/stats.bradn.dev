@@ -7,7 +7,7 @@
 					<h3
 						class="text text-primary-500"
 						data-weight="B"
-						data-size="L"
+						data-size="M"
 					>
 						<slot name="title" />
 					</h3>
